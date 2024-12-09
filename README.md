@@ -1,6 +1,7 @@
-## Hi there 👋
 
 <!--
+## Hi there 👋
+
 **HugStars/HugStars** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
@@ -14,3 +15,5 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+<img src="https://github-readme-stats-hugstars-projects.vercel.app/api?username=HugStars&count_private=true&show_icons=true">
+<img src="https://github-readme-stats-hugstars-projects.vercel.app/api/top-langs?username=HugStars&count_private=true&show_icons=true&layout=compact">
