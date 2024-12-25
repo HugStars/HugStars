@@ -6,4 +6,4 @@
 
 [![WakaTime Stats](https://github-readme-stats-hugstars-projects.vercel.app/api/wakatime?username=HugStars&locale=cn&hide_title=true&card_width=495)](https://github.com/HugStars)
 
-![Personal 3D Metrics](./profile-green-animate.svg)
+![Personal 3D Metrics](./profile-3d-contrib/profile-green-animate.svg)
