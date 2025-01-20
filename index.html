@@ -31,6 +31,8 @@
             justify-content: center;
             gap: 6vh;
             overflow-x: hidden;
+            background-size: 40px 40px;
+            background-image: linear-gradient(90deg, #3200000d 3%, transparent 3%), linear-gradient(360deg, #3200000d 3%, transparent 3%);
         }
 
         header {
@@ -66,35 +68,12 @@
         .item {
             width: 100%;
             height: 100%;
-            display: none;
         }
 
-        .item.active {
-            display: block;
-        }
 
-        img.contrib {
-            height: 100%;
+        .item svg {
             width: 100%;
-            object-fit: contain;
-        }
-
-        .control {
-            display: flex;
-            gap: 20px;
-        }
-
-        .dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 10px;
-            background: var(--c);
-            opacity: .5;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            opacity: 1;
+            height: 100%;
         }
     </style>
 </head>
@@ -105,44 +84,20 @@
         <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
     </header>
     <main>
-        <div class="item active">
-            <img class="contrib" src="./profile-3d-contrib/profile-green-animate.svg">
-        </div>
-        <!-- <div class="item">
-            <img class="contrib" src="./profile-3d-contrib/profile-night-rainbow.svg">
-        </div> -->
+        <div class="item contrib"> </div>
     </main>
-    <!-- <div class="control">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-    </div> -->
 
     <script>
-        // let itemList = document.querySelectorAll('.item')
-        // let active = 0
-        // let dotList = document.querySelectorAll('.dot')
-
-        // let next = () => {
-        //     itemList[active].classList.remove('active')
-        //     dotList[active].classList.remove('active')
-        //     active++
-        //     if (active > itemList.length - 1) active = 0
-        //     itemList[active].classList.add('active')
-        //     dotList[active].classList.add('active')
-        // }
-        // let prev = () => {
-        //     itemList[active].classList.remove('active')
-        //     dotList[active].classList.remove('active')
-        //     active--
-        //     if (active < 0) active = itemList.length - 1
-        //     itemList[active].classList.add('active')
-        //     dotList[active].classList.add('active')
-        // }
-
-        // setInterval(() => {
-        //     next()
-        // }, 3000)
-
+        fetch('./profile-3d-contrib/profile-green-animate.svg').then(res => {
+            res.text().then(svg => {
+                svg = svg.replace('<rect x="0" y="0" width="1280" height="850" fill="#ffffff"></rect>', '')
+                svg = svg.replace('<text style="font-size: 16px;" x="1260"', '<text style="font-size: 24px;" x="1260"')
+                document.querySelector('.contrib').innerHTML = svg
+            })
+        })
+        document.querySelector('.avatars').addEventListener('click', () => {
+            window.open('https://github.com/HugStars')
+        })
     </script>
 </body>
 
