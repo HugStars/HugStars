@@ -26,25 +26,95 @@
 
         :root {
             --c: cornflowerblue;
+            font-family: YSHaoShenTi, Arial, Helvetica Neue, Helvetica;
         }
 
+
+        @font-face {
+            font-family: YSHaoShenTi;
+            src: url(./YSHaoShenTi.woff2)
+        }
+
+
         body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6vh;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 26% calc(100% - 24px - 26%);
+            grid-template-rows: 40px calc(100% - 64px);
+            grid-gap: 24px;
+            background: #EEEEEE;
+            overflow: hidden overlay;
             overflow: hidden;
-            background-size: 40px 40px;
-            background-position: 1.5% 1.5%;
-            background-image: linear-gradient(90deg, #3200000d 3%, transparent 3%), linear-gradient(360deg, #3200000d 3%, transparent 3%);
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px;
         }
 
         header {
             display: flex;
+            border-radius: 6px;
+            grid-area: 1 / 1 / 2 / 3;
+        }
+
+        aside {
+            display: flex;
+            border-radius: 6px;
+            grid-area: 2 / 1 / 3 / 2;
             flex-direction: column;
             align-items: center;
+            gap: 24px;
+        }
+
+        main {
+            display: flex;
+            border-radius: 28px;
+            background: #F9F9F9;
+            grid-area: 2 / 2 / 3 / 3;
+            padding: 16px;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav .item {
+            padding: 6px 16px;
+            border-radius: 6px;
+            color: #a7a7a7;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        nav .item:hover {
+            background: #0000000d;
+        }
+
+        nav .item:active {
+            background-color: #00000015;
+            box-shadow: 0 2px 4px #0000001a;
+        }
+
+        nav .item.active {
+            color: var(--c);
+            background: white;
+        }
+
+        .avatars {
+            width: 120px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 4px solid #F9F9F9;
+            border-width: 0 0 4px 0;
+        }
+
+        .personal {
+            text-align: center;
         }
 
         .title {
@@ -54,153 +124,94 @@
             cursor: pointer;
         }
 
-        .avatars {
-            width: 120px;
-            overflow: hidden;
-            border-radius: 50%;
-            transition: all .2s;
+        .social {
+            min-width: 180px;
         }
 
-        main {
-            height: 70vh;
-            width: 100vw;
-            overflow: hidden;
-        }
-
-        @media screen and (max-width: 600px) {
-            .title {
-                font-size: large;
-            }
-
-            .avatars {
-                width: 80px;
-            }
-
-            main {
-                height: 50vh;
-            }
-        }
-
-        .scroll_box {
-            width: 100%;
-            height: 100%;
-            transition: all .5s ease-out;
-        }
-
-        .scroll_item {
-            width: 100%;
-            height: 100%;
+        .social a {
+            height: 36px;
             display: flex;
-            justify-content: center;
-            align-content: flex-start;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .scroll_item svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .program {
-            max-width: 86%;
-            display: flex;
-            background: #c1c1c126;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .program_icon {
-            position: relative;
-            width: 100px;
-            height: 100px;
-        }
-
-        .program_icon img {
-            width: 80px;
-            height: 80px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .image_bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            background-image: linear-gradient(135deg, #41cf7d90 10%, #41cf7d50 100%);
-            filter: blur(20px);
-            transform: translate(-50%, -50%);
-        }
-
-        .program_info {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .program_info .title {
-            font-size: 20px;
-        }
-
-        .program_info .subtitle {
-            font-size: 16px;
-        }
-
-        .program_info .info {
-            font-size: 14px;
-            color: #7f7f7f;
-        }
-
-        .program_info .foot {
-            display: flex;
-            justify-content: flex-start;
-            gap: 10px;
+            gap: 6px;
+            text-decoration: none;
+            color: #8b8b8b;
+            padding: 0 6px;
+            border-radius: 6px;
+            transition: all .3s;
             align-items: center;
         }
 
-        .program_info .foot a {
-            border-radius: 20px;
-            padding: 0 20px;
-            line-height: 26px;
-            font-size: 14px;
-            color: #ffffff;
-            background-color: #33b469;
-            background-color: #000000;
-            text-decoration: unset;
+        .social a:hover {
+            padding-left: 14px;
+            background: rgba(0, 0, 0, .062745098);
         }
 
-        footer .mouse {
-            width: 20px;
-            height: 36px;
-            border: 2px solid #333;
-            border-radius: 60px;
-            position: relative;
+        .social img {
+            width: 22px;
         }
 
-        .mouse::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            border-radius: 50%;
-            opacity: 1;
-            animation: wheel 2s infinite;
+        @media screen and (max-width: 800px) {
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            header {
+                height: 40px;
+            }
+
+            header .logo {
+                display: none;
+            }
+
+            header nav {
+                gap: 12px;
+            }
+
+            aside {
+                height: 300px;
+            }
+
+            main {
+                height: calc(100vh - 476px);
+            }
         }
 
-        @keyframes wheel {
-            100% {
+        .template {
+            display: none;
+        }
+
+        .loading {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            animation: show 0.5s ease-in-out;
+        }
+
+        @keyframes show {
+            from {
                 opacity: 0;
-                top: 20px;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .loading svg {
+            width: 80px;
+        }
+
+        .loading polygon {
+            stroke-dasharray: 17;
+            animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 136;
             }
         }
     </style>
@@ -208,106 +219,86 @@
 
 <body>
     <header>
-        <img class="avatars" src="./assets/avatars.png">
-        <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
-    </header>
-    <main>
-        <div class="scroll_box">
-            <div class="scroll_item contrib"> </div>
-            <div class="scroll_item">
-                <div class="program">
-                    <div class="program_icon">
-                        <div class="image_bg"></div>
-                        <img src="https://keyboard.hugstars.top/logo.svg" alt="">
-                    </div>
-                    <div class="program_info">
-                        <p class="title">Web KeyBoard</p>
-                        <p class="subtitle">局域网内的虚拟键盘</p>
-                        <p class="info">通过浏览器控制局域网内指定的电脑</p>
-                        <div class="foot">
-                            <a href="https://keyboard.hugstars.top">官网</a>
-                            <a href="https://github.com/HugStars/Web_Keyboard">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="program">
-                    <div class="program_icon">
-                        <div class="image_bg"></div>
-                        <img src="https://keyboard.hugstars.top/logo.svg" alt="">
-                    </div>
-                    <div class="program_info">
-                        <p class="title">Web KeyBoard</p>
-                        <p class="subtitle">局域网内的虚拟键盘</p>
-                        <p class="info">通过浏览器控制局域网内指定的电脑</p>
-                        <div class="foot">
-                            <a href="https://keyboard.hugstars.top">官网</a>
-                            <a href="https://github.com/HugStars/Web_Keyboard">GitHub</a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+        <div class="logo" style="width: calc(26% + 24px)"> </div>
+        <nav>
+            <div class="item active">首页</div>
+            <div class="item">项目</div>
+            <div class="item">网站</div>
+            <div class="item">关于</div>
+            <div class="item">其他</div>
+        </nav>
+
+        <div class="right_box">
+
         </div>
-    </main>
-    <footer>
-        <div class="mouse"></div>
-    </footer>
+    </header>
+
+    <aside>
+        <img class="avatars" src="./assets/avatars.png">
+        <div class="personal">
+            <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
+            <p style="color:#8b8b8b;">前端开发者</p>
+        </div>
+        <div class="social">
+            <a href="https://github.com/HugStars" target="_blank">
+                <img src="./assets/github.svg">
+                <p>HugStars</p>
+            </a>
+            <a>
+                <img src="./assets/mail.svg">
+                <p style="user-select: text;">super@hugstars.top</p>
+            </a>
+        </div>
+    </aside>
+
+    <main></main>
+
+    <div class="template">
+        <div class="loading">
+            <svg viewBox="0 0 34 34">
+                <polygon class="triangle" fill="none" stroke="#000" stroke-width="1" points="16,1 32,32 1,32" />
+            </svg>
+            <p>加载中...</p>
+        </div>
+    </div>
 
     <script>
+        let currentIndex = 0
+        let pageList = ['home', 'project', 'website', 'about', 'other']
+        let pageContent = []
+
+        let main = document.querySelector('main')
+        let loading = document.querySelector('.template').innerHTML
+
         fetch('./profile-3d-contrib/profile-green-animate.svg').then(res => {
             res.text().then(svg => {
+                svg = svg.replace('<svg', '<svg style="width: 100%;height: auto;"')
+                svg = svg.replace('<style>* { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }</style>', '')
                 svg = svg.replace('<rect x="0" y="0" width="1280" height="850" fill="#ffffff"></rect>', '')
                 svg = svg.replace('<text style="font-size: 16px;" x="1260"', '<text style="font-size: 24px;" x="1260"')
-                document.querySelector('.contrib').innerHTML = svg
+                main.innerHTML = svg
+
+                pageContent[0] = svg
             })
         })
 
-        let startTouchY = null
-        function handleScrollEvent(e) {
-            let scrollY = null
-            if (e.type === 'wheel') scrollY = e.deltaY
-            else if (e.type === 'touchmove') {
-                if (startTouchY === null) return
-                const touchY = e.touches[0].clientY
-                scrollY = startTouchY - touchY
-            }
-            if (scrollY > 0) next()
-            else if (scrollY < 0) prev()
-        }
 
-        addEventListener('wheel', throttle(handleScrollEvent, 200))
+        document.querySelectorAll('header nav .item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('header nav .item')[currentIndex].classList.remove('active')
+                item.classList.add('active')
+                currentIndex = index
+                if (pageContent[index]) return main.innerHTML = pageContent[index]
 
-        addEventListener('touchstart', e => startTouchY = e.touches[0].clientY, { passive: true })
-
-        addEventListener('touchend', () => startTouchY = null, { passive: true })
-
-        addEventListener('touchmove', throttle(handleScrollEvent, 200), { passive: false })
-
-        function throttle(fn, delay) {
-            let lastTime = 0
-            return function (...args) {
-                const now = new Date().getTime()
-                if (now - lastTime >= delay) {
-                    lastTime = now
-                    fn.apply(this, args)
-                }
-            }
-        }
-
-        const allPage = 2
-        let currentPage = 1
-
-        function next() {
-            if (currentPage >= allPage) return
-            currentPage++
-            document.querySelector('.scroll_box').style.transform = `translateY(${-100 * (currentPage - 1)}%)`
-        }
-
-        function prev() {
-            if (currentPage <= 1) return
-            currentPage--
-            document.querySelector('.scroll_box').style.transform = `translateY(${-100 * (currentPage - 1)}%)`
-        }
-
+                main.innerHTML = loading
+                fetch(`./${pageList[index]}.html`).then(res => {
+                    res.text().then(html => {
+                        main.innerHTML = html
+                        pageContent[index] = html
+                    })
+                })
+            })
+        })
     </script>
 </body>
 
