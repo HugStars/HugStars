@@ -1,1 +1,102 @@
-<pre>website</pre>
+<div class="project_box">
+    <div class="project">
+        <p class="title">前端博客</p>
+        <p class="subtitle">基于VuePress实现的前端博客</p>
+        <div class="foot">
+            <a href="https://blog.hugstars.top" target="_blank">前往</a>
+        </div>
+    </div>
+    <div class="project">
+        <p class="title">工具列表</p>
+        <p class="subtitle">基于Web实现的前端工具集合。</p>
+        <p class="info">文本编解码、文件编解码、GIF → PNG、Ico文件生成、二维码生成、地图JSON获取、前端录屏、文本传输等</p>
+        <div class="foot">
+            <a href="https://tool.hugstars.top" target="_blank">前往</a>
+        </div>
+    </div>
+    <div class="project">
+        <p class="title">前端视频课程</p>
+        <p class="subtitle">基于Node、Vue3实现</p>
+        <p class="info">前端进阶课程、阿里P7课程等</p>
+        <div class="foot">
+            <a href="https://web.hugstars.top" target="_blank">前往</a>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .project_box {
+        --gap: 16px;
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: var(--gap);
+    }
+
+    .project {
+        width: calc(50% - var(--gap) / 2);
+        padding: 10px;
+    }
+
+    .project .title {
+        font-size: large;
+        font-family: auto;
+    }
+
+    .info {
+        word-break: break-all;
+    }
+
+    .foot {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    .foot a {
+        height: 36px;
+        padding: 0 20px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        outline: 0;
+        border-radius: 6px;
+        background: rgba(0, 0, 0, .05);
+        color: #25262b;
+        transition: all .1s;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: YSHaoShenTi, Arial, Helvetica Neue, Helvetica;
+        user-select: none;
+        font-size: 14px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        gap: 8.64px;
+        text-decoration: unset;
+    }
+
+    .foot a:active {
+        background: rgba(0, 0, 0, .15);
+        box-shadow: 0 2px 4px #0000001a;
+    }
+
+    .foot a:hover {
+        background: rgba(0, 0, 0, .1);
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .project_box {
+            display: block;
+        }
+
+        .project {
+            width: 100%;
+        }
+    }
+</style>

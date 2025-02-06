@@ -1,48 +1,52 @@
 <div class="project_box">
     <div class="project">
-        <div class="project_icon">
-            <div class="image_bg"></div>
-            <img src="https://keyboard.hugstars.top/logo.svg" alt="">
-        </div>
-        <div class="project_info">
-            <p class="title">Web KeyBoard</p>
-            <p class="subtitle">局域网内的虚拟键盘</p>
-            <p class="info">通过浏览器控制局域网内指定的电脑</p>
-            <div class="foot">
-                <a href="https://keyboard.hugstars.top" target="_blank">官网</a>
-                <a href="https://github.com/HugStars/Web_Keyboard" target="_blank">GitHub</a>
-            </div>
+        <p class="title">Web KeyBoard</p>
+        <p class="subtitle">局域网内的虚拟键盘</p>
+        <p class="info">通过浏览器控制局域网内指定的电脑</p>
+        <div class="foot">
+            <a href="https://keyboard.hugstars.top" target="_blank">官网</a>
+            <a href="https://github.com/HugStars/Web_Keyboard" target="_blank">GitHub</a>
         </div>
     </div>
     <div class="project">
-        <div class="project_icon">
-            <div class="image_bg"></div>
-            <img src="https://keyboard.hugstars.top/logo.svg" alt="">
-        </div>
-        <div class="project_info">
-            <p class="title">OfflineTransfer</p>
-            <p class="subtitle">离线传输</p>
-            <p class="info">一个基于二维码进行小量数据离线传输的 web 项目。</p>
-            <div class="foot">
-                <a href="https://transfile.hugstars.top" target="_blank">官网</a>
-                <a href="https://github.com/HugStars/OfflineTransfer" target="_blank">GitHub</a>
-            </div>
+        <p class="title">OfflineTransfer</p>
+        <p class="subtitle">离线传输</p>
+        <p class="info">一个基于二维码进行小量数据离线传输的 web 项目。</p>
+        <div class="foot">
+            <a href="https://transfile.hugstars.top" target="_blank">官网</a>
+            <a href="https://github.com/HugStars/OfflineTransfer" target="_blank">GitHub</a>
         </div>
     </div>
     <div class="project">
-        <div class="project_icon">
-            <div class="image_bg"></div>
-            <img src="https://keyboard.hugstars.top/logo.svg" alt="">
+        <p class="title">ReadTXT</p>
+        <p class="subtitle">文本阅读器</p>
+        <p class="info">基于Niva实现的单行文本阅读器，摸鱼使用</p>
+        <div class="foot">
+            <button disabled>暂未开源</button>
         </div>
-        <div class="project_info">
-            <p class="title">ReadTXT</p>
-            <p class="subtitle">文本阅读器</p>
-            <p class="info">基于Niva实现的单行文本阅读器，摸鱼使用</p>
-            <div class="foot">
-                <!-- <a href="https://read.hugstars.top" target="_blank">官网</a>
-                <a href="https://github.com/HugStars/ReadTXT" target="_blank">GitHub</a> -->
-                <button disabled>暂未开源</button>
-            </div>
+    </div>
+    <div class="project">
+        <p class="title">WeChatBot</p>
+        <p class="subtitle">微信机器人</p>
+        <p class="info">一个基于Node.js、Wechaty实现的多功能微信机器人，集成大模型、自定义命令、定时任务、HTTPServer、SQLite、自动回复、后台管理等功能</p>
+        <div class="foot">
+            <button disabled>暂未开源</button>
+        </div>
+    </div>
+    <div class="project">
+        <p class="title">FileManager</p>
+        <p class="subtitle">文件管理系统</p>
+        <p class="info">基于 Node.js 的局域网文件管理系统，可用于搭建局域网共享文件服务器、文件浏览器等</p>
+        <div class="foot">
+            <button disabled>暂未开源</button>
+        </div>
+    </div>
+    <div class="project">
+        <p class="title">CloudFlare_Worker</p>
+        <p class="subtitle">运行在CloudFlare的后台服务</p>
+        <p class="info"></p>
+        <div class="foot">
+            <button disabled>暂未开源</button>
         </div>
     </div>
 </div>
@@ -50,57 +54,27 @@
 <style>
     .project_box {
         --gap: 16px;
+        flex: 1;
+        overflow: auto;
         display: flex;
-        gap: var(--gap);
         flex-direction: row;
         flex-wrap: wrap;
+        align-content: flex-start;
+        gap: var(--gap);
     }
 
     .project {
         width: calc(50% - var(--gap) / 2);
-        display: flex;
-        align-items: center;
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid #eaeaea;
-        background-size: 20px 20px;
-        background-position: 4.4% 8.8%;
-        background-image: linear-gradient(90deg, #3200000d 3%, transparent 3%), linear-gradient(360deg, #3200000d 3%, transparent 3%);
-    }
-
-    .project_icon {
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
-
-    .project_icon img {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .image_bg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        background-image: linear-gradient(135deg, #41cf7d90 10%, #41cf7d50 100%);
-        filter: blur(20px);
-        transform: translate(-50%, -50%);
-    }
-
-    .project_info {
         padding: 10px;
     }
 
-    .project_info .title {
+    .project .title {
         font-size: large;
+        font-family: auto;
+    }
+
+    .info {
+        word-break: break-all;
     }
 
     .foot {
@@ -144,6 +118,10 @@
 
 
     @media screen and (max-width: 800px) {
+        .project_box {
+            display: block;
+        }
+
         .project {
             width: 100%;
         }

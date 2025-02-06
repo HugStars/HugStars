@@ -36,7 +36,7 @@
         }
 
         body {
-            min-height: 100vh;
+            height: 100vh;
             display: grid;
             grid-template-columns: 26% calc(74% - 24px);
             grid-template-rows: 40px calc(100% - 64px);
@@ -71,6 +71,7 @@
             background: #F9F9F9;
             grid-area: 2 / 2 / 3 / 3;
             padding: 16px;
+            min-height: 0;
         }
 
         header nav {
@@ -184,6 +185,7 @@
 
             .social a {
                 height: 36px;
+                font-size: 14px;
             }
 
             main {
