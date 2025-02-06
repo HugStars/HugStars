@@ -18,31 +18,30 @@
             box-sizing: border-box;
             user-select: none;
             -webkit-user-drag: none;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-tap-highlight-color: transparent;
             -ms-tap-highlight-color: transparent;
             -moz-tap-highlight-color: transparent;
-            -o-tap-highlight-color: transparent;
+            -o-tap-highlight-color: transparent
         }
 
         :root {
-            --c: cornflowerblue;
-            font-family: YSHaoShenTi, Arial, Helvetica Neue, Helvetica;
+            --c: #6495ed;
+            color: #8b8b8b;
+            font-family: YSHaoShenTi, Arial, Helvetica Neue, Helvetica
         }
-
 
         @font-face {
             font-family: YSHaoShenTi;
-            src: url(./YSHaoShenTi.woff2)
+            src: url(assets/YSHaoShenTi.woff2)
         }
-
 
         body {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 26% calc(100% - 24px - 26%);
+            grid-template-columns: 26% calc(74% - 24px);
             grid-template-rows: 40px calc(100% - 64px);
             grid-gap: 24px;
-            background: #EEEEEE;
+            background: #eee;
             overflow: hidden overlay;
             overflow: hidden;
             max-width: 1200px;
@@ -67,6 +66,7 @@
 
         main {
             display: flex;
+            flex-direction: column;
             border-radius: 28px;
             background: #F9F9F9;
             grid-area: 2 / 2 / 3 / 3;
@@ -82,7 +82,6 @@
         nav .item {
             padding: 6px 16px;
             border-radius: 6px;
-            color: #a7a7a7;
             font-size: 16px;
             cursor: pointer;
             transition: .2s;
@@ -92,7 +91,7 @@
         }
 
         nav .item:hover {
-            background: #0000000d;
+            background: #818b981a;
         }
 
         nav .item:active {
@@ -122,10 +121,11 @@
             font-weight: 600;
             color: var(--c);
             cursor: pointer;
+            margin-bottom: 4px;
         }
 
         .social {
-            min-width: 180px;
+            min-width: 190px;
         }
 
         .social a {
@@ -133,16 +133,16 @@
             display: flex;
             gap: 6px;
             text-decoration: none;
-            color: #8b8b8b;
-            padding: 0 6px;
+            padding: 0 14px 0 6px;
             border-radius: 6px;
             transition: all .3s;
             align-items: center;
+            color: #8b8b8b;
         }
 
         .social a:hover {
             padding-left: 14px;
-            background: rgba(0, 0, 0, .062745098);
+            background: #818b981a;
         }
 
         .social img {
@@ -153,6 +153,7 @@
             body {
                 display: flex;
                 flex-direction: column;
+                grid-gap: 16px;
             }
 
             header {
@@ -164,15 +165,29 @@
             }
 
             header nav {
-                gap: 12px;
+                gap: unset;
+                width: 100%;
+                justify-content: space-between;
             }
 
             aside {
-                height: 300px;
+                gap: 8px;
+            }
+
+            .avatars {
+                width: 80px;
+            }
+
+            .social {
+                display: flex;
+            }
+
+            .social a {
+                height: 36px;
             }
 
             main {
-                height: calc(100vh - 476px);
+                flex: 1;
             }
         }
 
@@ -182,6 +197,7 @@
 
         .loading {
             width: 100%;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -237,7 +253,7 @@
         <img class="avatars" src="./assets/avatars.png">
         <div class="personal">
             <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
-            <p style="color:#8b8b8b;">前端开发者</p>
+            <p>前端开发者</p>
         </div>
         <div class="social">
             <a href="https://github.com/HugStars" target="_blank">
@@ -256,7 +272,7 @@
     <div class="template">
         <div class="loading">
             <svg viewBox="0 0 34 34">
-                <polygon class="triangle" fill="none" stroke="#000" stroke-width="1" points="16,1 32,32 1,32" />
+                <polygon class="triangle" fill="none" stroke="#8b8b8b" stroke-width="1" points="16,1 32,32 1,32" />
             </svg>
             <p>加载中...</p>
         </div>
@@ -272,37 +288,80 @@
 
         main.innerHTML = loading
 
-        fetch('./profile-3d-contrib/profile-green-animate.svg').then(res => {
-            res.text().then(svg => {
-                svg = svg.replace('<svg', '<svg style="width: 100%;height: auto;"')
-                svg = svg.replace('<style>* { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }</style>', '')
-                svg = svg.replace('<rect x="0" y="0" width="1280" height="850" fill="#ffffff"></rect>', '')
-                svg = svg.replace('<text style="font-size: 16px;" x="1260"', '<text style="font-size: 24px;" x="1260"')
-                main.innerHTML = svg
+        fetch('./profile-3d-contrib/profile-green-animate.svg').then(async res => {
+            let contrib = await res.text()
+            contrib = contrib.replace('<svg', '<svg style="width: 100%;height: fit-content;"')
+            contrib = contrib.replace('<style>* { font-family: "Ubuntu", "Helvetica", "Arial", sans-serif; }</style>', '')
+            contrib = contrib.replace('<rect x="0" y="0" width="1280" height="850" fill="#ffffff"></rect>', '')
+            contrib = contrib.replace('<text style="font-size: 16px;"', '<text style="font-size: 28px;"')
+            main.innerHTML = contrib
 
-                pageContent[0] = svg
-            })
+            let langs = await fetch('https://worker.hugstars.top/api/github/top-langs').then(res => res.text())
+            langs = langs.replaceAll(/\s+/g, ' ')
+            langs = langs.replace('<svg', '<svg style="width: 100%; max-width: 600px; height: fit-content; margin: auto;"')
+            langs = langs.replace('<rect data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" stroke="#e4e2e2" width="494" fill="#fffefe" stroke-opacity="1" />', '')
+            main.innerHTML += langs
+            pageContent[0] = contrib + langs
         })
 
-
         document.querySelectorAll('header nav .item').forEach((item, index) => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', async () => {
                 document.querySelectorAll('header nav .item')[currentIndex].classList.remove('active')
                 item.classList.add('active')
                 currentIndex = index
+
                 if (pageContent[index]) return main.innerHTML = pageContent[index]
 
                 main.innerHTML = loading
-                fetch(`./${pageList[index]}.html`).then(res => {
-                    res.text().then(html => {
-                        main.innerHTML = html
-                        pageContent[index] = html
-                    })
-                })
+
+                const res = await fetch(`./page/${pageList[index]}.html`)
+                const html = await res.text()
+                main.innerHTML = html
+                pageContent[index] = html
             })
         })
+
+        function createTypewriter(options) {
+            const { selector, texts = [], typingDelay = 250, loopDelay = 2500 } = options
+
+            const targetElement = document.querySelector(selector)
+            let currentChar = 0
+            let currentTextIndex = 0
+            let timeoutId = null
+
+            function typeNextChar() {
+                if (!targetElement || texts.length === 0) return
+
+                const currentText = texts[currentTextIndex]
+
+                if (currentChar >= currentText.length) {
+                    timeoutId = setTimeout(() => {
+                        currentChar = 0
+                        currentTextIndex = (currentTextIndex + 1) % texts.length
+                        typeNextChar()
+                    }, loopDelay)
+                    return
+                }
+
+                targetElement.textContent = currentText.slice(0, currentChar + 1)
+                currentChar++
+
+                timeoutId = setTimeout(typeNextChar, typingDelay)
+            }
+
+            currentChar = 0
+            currentTextIndex = 0
+            typeNextChar()
+        }
+
+        createTypewriter({
+            selector: '.personal .title+p',
+            texts: ['前端开发者', 'Web Developer'],
+            typingDelay: 250,
+            loopDelay: 2000
+        })
+
     </script>
-    <script src="./index.js"></script>
 </body>
 
 </html>
