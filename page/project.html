@@ -1,53 +1,57 @@
 <div class="project_box">
     <div class="project">
-        <p class="title">Web KeyBoard</p>
+        <div class="top_box">
+            <a class="link" href="https://keyboard.hugstars.top" target="_blank">
+                Web KeyBoard
+                <img src="../assets/jump.svg" alt="">
+            </a>
+            <a class="github" href="https://github.com/HugStars/Web_Keyboard" target="_blank">GitHub</a>
+        </div>
         <p class="subtitle">局域网内的虚拟键盘</p>
         <p class="info">通过浏览器控制局域网内指定的电脑</p>
-        <div class="foot">
-            <a href="https://keyboard.hugstars.top" target="_blank">官网</a>
-            <a href="https://github.com/HugStars/Web_Keyboard" target="_blank">GitHub</a>
-        </div>
     </div>
     <div class="project">
-        <p class="title">OfflineTransfer</p>
+        <div class="top_box">
+            <a class="link" href="https://transfile.hugstars.top" target="_blank">
+                Web OfflineTransfer
+                <img src="../assets/jump.svg" alt="">
+            </a>
+            <a class="github" href="https://github.com/HugStars/OfflineTransfer" target="_blank">GitHub</a>
+        </div>
         <p class="subtitle">离线传输</p>
         <p class="info">一个基于二维码进行小量数据离线传输的 web 项目。</p>
-        <div class="foot">
-            <a href="https://transfile.hugstars.top" target="_blank">官网</a>
-            <a href="https://github.com/HugStars/OfflineTransfer" target="_blank">GitHub</a>
-        </div>
     </div>
     <div class="project">
-        <p class="title">ReadTXT</p>
+        <div class="top_box">
+            <a class="link">ReadTXT</a>
+            <button disabled>暂未开源</button>
+        </div>
         <p class="subtitle">文本阅读器</p>
         <p class="info">基于Niva实现的单行文本阅读器，摸鱼使用</p>
-        <div class="foot">
-            <button disabled>暂未开源</button>
-        </div>
     </div>
     <div class="project">
-        <p class="title">WeChatBot</p>
+        <div class="top_box">
+            <a class="link">WeChatBot</a>
+            <button disabled>暂未开源</button>
+        </div>
         <p class="subtitle">微信机器人</p>
         <p class="info">一个基于Node.js、Wechaty实现的多功能微信机器人，集成大模型、自定义命令、定时任务、HTTPServer、SQLite、自动回复、后台管理等功能</p>
-        <div class="foot">
-            <button disabled>暂未开源</button>
-        </div>
     </div>
     <div class="project">
-        <p class="title">FileManager</p>
+        <div class="top_box">
+            <a class="link">FileManager</a>
+            <button disabled>暂未开源</button>
+        </div>
         <p class="subtitle">文件管理系统</p>
         <p class="info">基于 Node.js 的局域网文件管理系统，可用于搭建局域网共享文件服务器、文件浏览器等</p>
-        <div class="foot">
-            <button disabled>暂未开源</button>
-        </div>
     </div>
     <div class="project">
-        <p class="title">CloudFlare_Worker</p>
-        <p class="subtitle">运行在CloudFlare的后台服务</p>
-        <p class="info"></p>
-        <div class="foot">
+        <div class="top_box">
+            <a class="link">CloudFlare_Worker</a>
             <button disabled>暂未开源</button>
         </div>
+        <p class="subtitle">运行在CloudFlare的后台服务</p>
+        <p class="info"></p>
     </div>
 </div>
 
@@ -71,25 +75,28 @@
         gap: 8px;
     }
 
-    .project .title {
+    .project .top_box {
+        display: flex;
+        align-items: center;
+        gap: 6px;
         font-size: large;
         font-family: auto;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ececec;
     }
 
-    .info {
-        word-break: break-all;
-    }
-
-    .foot {
+    .top_box a.link {
         display: flex;
-        gap: 16px;
-        margin-top: auto;
+        gap: 4px;
+        color: var(--c);
+        text-decoration: none;
+        font-weight: 600;
     }
 
-    .foot a,
-    .foot button {
-        height: 36px;
-        padding: 0 20px;
+    .top_box a.github,
+    .top_box button {
+        height: 26px;
+        padding: 0 8px;
         cursor: pointer;
         border: 2px solid transparent;
         outline: 0;
@@ -103,26 +110,32 @@
         font-family: YSHaoShenTi, Arial, Helvetica Neue, Helvetica;
         user-select: none;
         font-size: 14px;
+        font-weight: 100;
         border: 0;
         display: flex;
         align-items: center;
         gap: 8.64px;
         text-decoration: unset;
+        margin-left: auto;
     }
 
-    .foot a:active {
+    .top_box a.github:active {
         background: rgba(0, 0, 0, .15);
         box-shadow: 0 2px 4px #0000001a;
     }
 
-    .foot a:hover {
+    .top_box a.github:hover {
         background: rgba(0, 0, 0, .1);
     }
 
-    .foot button:disabled {
+    .top_box button:disabled {
         cursor: not-allowed;
+        color: #25262b90;
     }
 
+    .info {
+        word-break: break-all;
+    }
 
     @media screen and (max-width: 800px) {
         .project_box {
