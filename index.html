@@ -306,6 +306,8 @@
             pageContent[0] = contrib + langs
         })
 
+        fetch('https://worker.hugstars.top/api/visits')
+
         document.querySelectorAll('header nav .item').forEach((item, index) => {
             item.addEventListener('click', async () => {
                 document.querySelectorAll('header nav .item')[currentIndex].classList.remove('active')
