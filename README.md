@@ -6,4 +6,4 @@
 
 [![Top Langs](https://github-readme-stats-hugstars-projects.vercel.app/api/top-langs?username=HugStars&count_private=true&hide_title=true&layout=compact&card_width=495)](https://github.com/HugStars)
 
-[![WakaTime Stats](https://github-readme-stats-hugstars-projects.vercel.app/api/wakatime?username=HugStars&locale=cn&hide_title=true&card_width=495)](https://github.com/HugStars)
+<!-- [![WakaTime Stats](https://github-readme-stats-hugstars-projects.vercel.app/api/wakatime?username=HugStars&locale=cn&hide_title=true&card_width=495)](https://github.com/HugStars) -->
