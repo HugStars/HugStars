@@ -9,6 +9,7 @@
     <meta name="keywords" content="HugStars，揽星兮">
     <meta name="author" content="HugStars">
     <link rel="shortcut icon" href="./assets/icon.ico" type="image/x-icon">
+    <script async src="https://hm.baidu.com/hm.js?efff0bbc60f9aa0e342cd4de39c4a569"></script>
     <title>𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</title>
     <style>
         * {
@@ -110,7 +111,6 @@
             overflow: hidden;
             border-radius: 50%;
             border: 4px solid #F9F9F9;
-            border-width: 0 0 4px 0;
         }
 
         .personal {
@@ -126,6 +126,9 @@
         }
 
         .social {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             min-width: 190px;
         }
 
@@ -255,7 +258,6 @@
         <img class="avatars" src="./assets/avatars.png">
         <div class="personal">
             <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
-            <p>前端开发者</p>
         </div>
         <div class="social">
             <a href="https://github.com/HugStars" target="_blank">
@@ -263,7 +265,6 @@
                 <p>HugStars</p>
             </a>
             <a>
-                <img src="./assets/mail.svg">
                 <p style="user-select: text;">super@hugstars.top</p>
             </a>
         </div>
@@ -324,47 +325,6 @@
                 pageContent[index] = html
             })
         })
-
-        function createTypewriter(options) {
-            const { selector, texts = [], typingDelay = 250, loopDelay = 2500 } = options
-
-            const targetElement = document.querySelector(selector)
-            let currentChar = 0
-            let currentTextIndex = 0
-            let timeoutId = null
-
-            function typeNextChar() {
-                if (!targetElement || texts.length === 0) return
-
-                const currentText = texts[currentTextIndex]
-
-                if (currentChar >= currentText.length) {
-                    timeoutId = setTimeout(() => {
-                        currentChar = 0
-                        currentTextIndex = (currentTextIndex + 1) % texts.length
-                        typeNextChar()
-                    }, loopDelay)
-                    return
-                }
-
-                targetElement.textContent = currentText.slice(0, currentChar + 1)
-                currentChar++
-
-                timeoutId = setTimeout(typeNextChar, typingDelay)
-            }
-
-            currentChar = 0
-            currentTextIndex = 0
-            typeNextChar()
-        }
-
-        createTypewriter({
-            selector: '.personal .title+p',
-            texts: ['前端开发者', 'Web Developer'],
-            typingDelay: 250,
-            loopDelay: 2000
-        })
-
     </script>
 </body>
 
