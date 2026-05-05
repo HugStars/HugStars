@@ -197,7 +197,16 @@
 
                 .userinfo {
                     flex: 1;
+                    display: flex;
+                    align-items: center;
                     flex-direction: row;
+                    min-width: unset;
+                    gap: 8px;
+
+                    .title {
+                        line-height: 36px;
+                        margin-bottom: 0;
+                    }
 
                     .personal {
                         flex: 1;
@@ -205,6 +214,8 @@
                     }
 
                     .now_status {
+                        height: 36px;
+                        line-height: 36px;
                         max-width: unset;
                         text-align: left;
                     }
@@ -213,17 +224,17 @@
             }
 
             .avatars {
-                width: 80px;
+                width: 60px;
             }
 
             .social {
+                min-width: unset;
                 flex: 1;
                 display: flex;
                 align-items: flex-start
             }
 
             .social a {
-                height: 36px;
                 font-size: 14px;
             }
 
