@@ -106,6 +106,14 @@
             background: white;
         }
 
+        .userinfo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 290px;
+            gap: 16px;
+        }
+
         .avatars {
             width: 120px;
             overflow: hidden;
@@ -115,6 +123,15 @@
 
         .personal {
             text-align: center;
+        }
+
+        .now_status {
+            text-align: center;
+            max-width: 190px;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .title {
@@ -176,6 +193,23 @@
 
             aside {
                 gap: 8px;
+                flex-direction: row;
+
+                .userinfo {
+                    flex: 1;
+                    flex-direction: row;
+
+                    .personal {
+                        flex: 1;
+                        text-align: left;
+                    }
+
+                    .now_status {
+                        max-width: unset;
+                        text-align: left;
+                    }
+                }
+
             }
 
             .avatars {
@@ -183,7 +217,9 @@
             }
 
             .social {
+                flex: 1;
                 display: flex;
+                align-items: flex-start
             }
 
             .social a {
@@ -255,9 +291,12 @@
     </header>
 
     <aside>
-        <img class="avatars" src="./assets/avatars.png">
-        <div class="personal">
-            <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
+        <div class="userinfo">
+            <img class="avatars" src="./assets/avatars.png">
+            <div class="personal">
+                <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
+                <div class="now_status"></div>
+            </div>
         </div>
         <div class="social">
             <a href="https://github.com/HugStars" target="_blank">
@@ -324,6 +363,13 @@
                 main.innerHTML = html
                 pageContent[index] = html
             })
+        })
+
+        let NowStatus = document.querySelector('.now_status')
+
+        fetch('https://worker.hugstars.top/api/my_status').then(res => res.json()).then(data => {
+            if (data.code !== 0 || !data.data.time_form_now) NowStatus.innerHTML = "离线"
+            else NowStatus.innerHTML = `${data.data.time_form_now} ${data.data.exe_name}`
         })
     </script>
 </body>
