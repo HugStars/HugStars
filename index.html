@@ -192,50 +192,68 @@
             }
 
             aside {
+                all: unset;
+                display: flex;
                 gap: 8px;
-                flex-direction: row;
+                overflow: hidden;
+            }
 
-                .userinfo {
-                    flex: 1;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: row;
-                    min-width: unset;
-                    gap: 8px;
+            .userinfo {
+                all: unset;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                flex: 1;
+                max-width: 60%;
+                overflow: hidden;
+            }
 
-                    .title {
-                        line-height: 36px;
-                        margin-bottom: 0;
-                    }
+            .userinfo p {
+                line-height: 36px;
+                height: 36px;
+            }
 
-                    .personal {
-                        flex: 1;
-                        text-align: left;
-                    }
+            .title {
+                line-height: 36px;
+                margin-bottom: 0;
+            }
 
-                    .now_status {
-                        height: 36px;
-                        line-height: 36px;
-                        max-width: unset;
-                        text-align: left;
-                    }
-                }
+            .personal {
+                all: unset;
+                max-width: calc(100% - 68px);
+                min-width: calc(100% - 68px);
+                flex-shrink: 1;
+            }
 
+            .now_status {
+                all: unset;
+                font-size: 14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: block;
             }
 
             .avatars {
+                all: unset;
                 width: 60px;
+                max-width: 60px;
+                min-width: 60px;
+                border-radius: 50%;
+                border: 2px solid #F9F9F9;
+                overflow: hidden;
             }
 
             .social {
-                min-width: unset;
+                all: unset;
                 flex: 1;
-                display: flex;
-                align-items: flex-start
+                max-width: 40%;
+
             }
 
             .social a {
-                font-size: 14px;
+                /* all: unset; */
+
             }
 
             main {
@@ -306,7 +324,7 @@
             <img class="avatars" src="./assets/avatars.png">
             <div class="personal">
                 <p class="title">𝑯𝒖𝒈𝑺𝒕𝒂𝒓𝒔</p>
-                <div class="now_status"></div>
+                <p class="now_status"></p>
             </div>
         </div>
         <div class="social">
